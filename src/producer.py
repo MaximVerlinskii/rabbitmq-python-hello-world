@@ -51,19 +51,19 @@ def main():
                 properties=pika.BasicProperties(headers={'x-match': 'all', 'format': 'pdf', 'type': 'report'})
             )
 
-            print(f" [x] Sent {message}")
+            print(f' [x] Sent {message}')
             time.sleep(5)  # wait for 5 seconds before sending the next message
 
     except pika.exceptions.AMQPConnectionError as e:
-        print(f"Connection was closed, retrying... Error: {e}")
+        print(f'Connection was closed, retrying... Error: {e}')
         time.sleep(5)
 
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f'An error occurred: {e}')
 
 
 if __name__ == '__main__':
     print('Starting producer')
-    time.sleep(50)  # or wait-for-it script
+    time.sleep(15)  # or wait-for-it script
 
     main()
